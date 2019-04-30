@@ -1,4 +1,4 @@
-# API d'interrogation des zones de restriction de vol pour les drones de loisir
+# API REST/json d'interrogation des zones de restriction de vol pour les drones de loisir
 
 Zones soumises à interdictions ou à restrictions pour l’usage, à titre de loisir, d’aéronefs télépilotés (ou drones), sur le territoire métropolitain.
 
