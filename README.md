@@ -31,11 +31,11 @@ Aucune licence n'étant clairement indiquée pour ces données, on peut considé
 
 La recherche se fait géographiquement, avec possibilité de filtrer les réponses:
 - lat/lon/rayon: latitude/longitude autour de laquelle chercher dans un rayon donné (par défaut 1000m)
-- limite: filtre sur la limite minimale en hauteur de vol
+- limite: filtre sur la limite en hauteur de vol
 
 Exemples:
 - https://api.cquest.org/drone?lat=47.9&lon=3.4 : toutes les zones dans un rayon de 1000m
-- https://api.cquest.org/drone?lat=47.9&lon=3.4&rayon=5000&limite=50 : toutes les zones avec une hauteur limite d'au moins 50m/sol à 5km à la ronde
+- https://api.cquest.org/drone?lat=47.9&lon=3.4&rayon=5000&limite=50 : toutes les zones avec une hauteur limite de 50m/sol à 5km à la ronde
 
 Infos retournées:
 - format geojson
