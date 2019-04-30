@@ -13,7 +13,7 @@ class dgac_drone(object):
 
         lat = float(req.params.get('lat', None).replace(',','.'))
         lon = float(req.params.get('lon', None).replace(',', '.'))
-        dist=min(int(req.params.get('rayon', 1000)), 10000)
+        dist=min(int(req.params.get('rayon', 1000)), 50000)
 
         limite = req.params.get('limite', None)
         if limite:
