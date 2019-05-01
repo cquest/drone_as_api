@@ -17,11 +17,11 @@ class dgac_drone(object):
 
         limite = req.params.get('limite', None)
         if limite:
-            where = where + cur.mogrify(" AND limite = %s", (limite,)).decode()
+            where = where + cur.mogrify(" AND limite = %s", (int(limite),)).decode()
 
         limite_min = req.params.get('limite_min', None)
         if limite_min:
-            where = where + cur.mogrify(" AND limite >= %s", (limite_min,)).decode()
+            where = where + cur.mogrify(" AND limite >= %s", (int(limite_min),)).decode()
 
         if lat and lon:  # recherche géographique
             query = """
