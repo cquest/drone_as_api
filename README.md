@@ -5,11 +5,15 @@ Zones soumises à interdictions ou à restrictions pour l’usage, à titre de l
 Ces données intègrent partiellement les interdictions s’appuyant sur des données publiées hors de l’AIP (Aeronautical Information Publication) et ne couvrent pas les interdictions temporaires.
 Elles sont basées sur l’arrêté « espace » du 30 mars 2017.
 
+Les zones avec la limite général à 150m/sol sont calculée en retranchant les zones restreintes des polygones simplifiés des départements.
+
+
 ## Source et millésime
 
 Source des données: SIA/DGAC
 
 Millésime des données: 2018-11
+
 
 ## Informations complémentaires
 
@@ -27,15 +31,17 @@ La dernière version visualisable est disponible sur https://www.geoportail.gouv
 Aucune licence n'étant clairement indiquée pour ces données, on peut considérer qu'elles relèvent du cadre général du Code des Relations entre le Public et l'Administration (CRPA) correspondant à la Licence Ouverte 2.0.
 
 
-# Utilisation
+# Utilisation de l'API
 
 La recherche se fait géographiquement, avec possibilité de filtrer les réponses:
 - lat/lon/rayon: latitude/longitude autour de laquelle chercher dans un rayon donné (par défaut 1000m)
 - limite: filtre sur la limite en hauteur de vol
+- limite_min : filtre sur la limite minimale de hauteur de vol
 
 Exemples:
 - https://api.cquest.org/drone?lat=47.9&lon=3.4 : toutes les zones dans un rayon de 1000m
 - https://api.cquest.org/drone?lat=47.9&lon=3.4&rayon=5000&limite=50 : toutes les zones avec une hauteur limite de 50m/sol à 5km à la ronde
+- https://api.cquest.org/drone?lat=48.85&lon=2.35&rayon=30000&limite_min=100 : zones les plus proches du centre de Paris avec un hauteur limite mini de 100m
 
 Infos retournées:
 - format geojson
@@ -44,4 +50,11 @@ Infos retournées:
   - distance_m : distance du point initial à la zone en question (en m), 0 si l'on se trouve dans la zone.
   - cap_deg : cap vers le points le plus proche de la zone (en degrés), null si l'on se trouve dans la zone.
 
-Les résultats sont triés par distance croissante.
+Les résultats sont triés par distance croissante, la zone la plus proche est donc la première retournée.
+
+
+# Exemple de carte dynamique s'appuyant sur l'API
+
+Il s'agit d'une carte uMap interrogeant l'API de façon dynamique:
+
+https://umap.openstreetmap.fr/fr/map/restrictions-de-vol-pour-drones-de-loisir_321092
