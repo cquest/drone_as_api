@@ -19,6 +19,10 @@ class dgac_drone(object):
         if limite:
             where = where + cur.mogrify(" AND limite = %s", (limite,)).decode()
 
+        limite_min = req.params.get('limite_min', None)
+        if limite_min:
+            where = where + cur.mogrify(" AND limite >= %s", (limite_min,)).decode()
+
         if lat and lon:  # recherche géographique
             query = """
 select json_build_object('source', 'DGAC / SIA',
