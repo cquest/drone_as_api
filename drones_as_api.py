@@ -26,7 +26,7 @@ class dgac_drone(object):
         if lat and lon:  # recherche géographique
             query = """
 select json_build_object('source', 'DGAC / SIA',
-    'derniere_maj', '2018-11',
+    'derniere_maj', '2021-01',
     'type','Featurecollection',
     'nb_features', count(d.*),
     'features', case when count(*)=0 then array[]::json[] else array_agg(json_build_object(
